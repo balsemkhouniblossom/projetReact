@@ -3,7 +3,12 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import { Search } from "./Ecmascript/fonction.js";
-
+import ClassComponent from './Components/ClassComponent.jsx';
+import FunctionalComponent from './Components/FunctionalComponent.jsx';
+import Methods from'./CourseComponents/ClassComponentLifeCycle/Methods.jsx'
+import Mounting from './CourseComponents/ClassComponentLifeCycle/Mounting.jsx'
+import Unmouting from './CourseComponents/ClassComponentLifeCycle/Unmounting.jsx';
+import  Update  from './CourseComponents/ClassComponentLifeCycle/Update.jsx';
 function App() {
   const [count, setCount] = useState(0)
 
@@ -107,28 +112,34 @@ ajouterEntree("Bob", 30);
 const resultat = Search(Tab, 1);
 console.log("Résultat de la recherche :", resultat);
 
+const name = "4TWIN2"
+const Etudiant ={
+  nom :"Balsem",
+  prenom : "Khouni",
+  age : 20
+}
+
+const tabs= [1,2,5,9,89,76]
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
+   {/* <ClassComponent name="balsem"/>
+    <FunctionalComponent name ="khouni" />
+    <Methods/>
+    <Mounting/>
+       <Update></Update> 
+*/}       <Unmouting/> 
+
+    <a href="https://react.dev" target="_blank">
           <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    </a>
+     <h1>Hello from {name}</h1>
+     <h2> le contenu de l'object est = {Etudiant.nom}</h2>
+     <ul>
+      {tabs.map((e) => {
+        return <li>{e}</li>
+      }
+        )}
+     </ul>
     </>
   )
 }
