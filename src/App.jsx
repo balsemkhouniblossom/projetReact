@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -9,15 +9,52 @@ import Methods from'./CourseComponents/ClassComponentLifeCycle/Methods.jsx'
 import Mounting from './CourseComponents/ClassComponentLifeCycle/Mounting.jsx'
 import Unmouting from './CourseComponents/ClassComponentLifeCycle/Unmounting.jsx';
 import  Update  from './CourseComponents/ClassComponentLifeCycle/Update.jsx';
+import Counter from './ExercicePropsState/Counter.jsx';
+import ListManger from './ExercicePropsState/ListManger.jsx';
+import ColorBox from './ExercicePropsState/ColorBox.jsx';
+import NotesManager from './ExercicePropsState/NotesManager.jsx';
+import TodoList from './ExercicePropsState/TodoList.jsx';
+
 function App() {
   const [count, setCount] = useState(0)
 
 
-  
+  const listItems=["angular","react","node"]
+  const initialColor = "#FF5733";
+    const colorOptions = ["#FF5733", "#33FF57", "#3357FF", "#FFFF33", "#FF33FF"];
+    const initialNotes = [15, 18, 12]; // Notes initiales
+    const initialTasks = [
+      { name: "Faire les courses", priority: "Haute", completed: false },
+      { name: "Préparer le dîner", priority: "Moyenne", completed: true },
+      { name: "Lire un livre", priority: "Basse", completed: false },
+  ];
  /* let somme = function(a,b){
     return a+b;
   }*/
 
+    const[counter, setCounter] = useState(0);
+    const [{color,background}, setcolor]= useState({color:'black',background:'white'});
+    useEffect (()=>{ console.log('use effect')},[count])
+    return (
+      <>
+      {/* <h1>{counter}</h1>
+      <button onClick={()=>setCounter(counter+1)}>Increment</button>
+      <h2>  La couleur est {color} et le background est {background}</h2>
+      <input type="text" onChange={e=>{setcolor(c=>({...c,color:e.target.value}))}} />
+       */}
+<Counter step = {1}></Counter>
+<ListManger l={listItems} placeHold={"ecrire..."} ></ListManger>
+
+            {/* Utilisation de ColorBox avec les props */}
+            <ColorBox initialColor={initialColor} colorOptions={colorOptions}></ColorBox>
+             <NotesManager initialNotes={initialNotes}></NotesManager>
+          
+    <TodoList initialTasks={initialTasks}></TodoList>
+        
+      </>
+    )
+
+    
 
 let somme = (a, b) => a + b;
 console.log(somme(5,3));
@@ -129,7 +166,7 @@ const tabs= [1,2,5,9,89,76]
        <Update></Update> 
 */}       <Unmouting/> 
 
-    <a href="https://react.dev" target="_blank">
+    {/* <a href="https://react.dev" target="_blank">
           <img src={reactLogo} className="logo react" alt="React logo" />
     </a>
      <h1>Hello from {name}</h1>
@@ -139,7 +176,7 @@ const tabs= [1,2,5,9,89,76]
         return <li>{e}</li>
       }
         )}
-     </ul>
+     </ul> */}
     </>
   )
 }
