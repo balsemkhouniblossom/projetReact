@@ -14,7 +14,7 @@ import ListManger from './ExercicePropsState/ListManger.jsx';
 import ColorBox from './ExercicePropsState/ColorBox.jsx';
 import NotesManager from './ExercicePropsState/NotesManager.jsx';
 import TodoList from './ExercicePropsState/TodoList.jsx';
-
+import Event from './Components/Event.jsx'
 function App() {
   const [count, setCount] = useState(0)
 
@@ -42,12 +42,12 @@ function App() {
       <h2>  La couleur est {color} et le background est {background}</h2>
       <input type="text" onChange={e=>{setcolor(c=>({...c,color:e.target.value}))}} />
        */}
-            <Counter step = {1}></Counter>
+            {/* <Counter step = {1}></Counter>
             <ListManger l={listItems} placeHold={"ecrire..."} ></ListManger>
             <ColorBox initialColor={initialColor} colorOptions={colorOptions}></ColorBox>
             <NotesManager initialNotes={initialNotes}></NotesManager>
-            <TodoList initialTasks={initialTasks}></TodoList>
-        
+            <TodoList initialTasks={initialTasks}></TodoList> */}
+        <Event></Event>
       </>
     )
 
