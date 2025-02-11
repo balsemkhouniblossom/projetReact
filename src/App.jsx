@@ -21,9 +21,9 @@ function App() {
 
   const listItems=["angular","react","node"]
   const initialColor = "#FF5733";
-    const colorOptions = ["#FF5733", "#33FF57", "#3357FF", "#FFFF33", "#FF33FF"];
-    const initialNotes = [15, 18, 12]; // Notes initiales
-    const initialTasks = [
+  const colorOptions = ["#FF5733", "#33FF57", "#3357FF", "#FFFF33", "#FF33FF"];
+  const initialNotes = [15, 18, 12]; // Notes initiales
+  const initialTasks = [
       { name: "Faire les courses", priority: "Haute", completed: false },
       { name: "Préparer le dîner", priority: "Moyenne", completed: true },
       { name: "Lire un livre", priority: "Basse", completed: false },
@@ -32,9 +32,9 @@ function App() {
     return a+b;
   }*/
 
-    const[counter, setCounter] = useState(0);
-    const [{color,background}, setcolor]= useState({color:'black',background:'white'});
-    useEffect (()=>{ console.log('use effect')},[count])
+  const[counter, setCounter] = useState(0);
+  const [{color,background}, setcolor]= useState({color:'black',background:'white'});
+  useEffect (()=>{ console.log('use effect')},[count])
     return (
       <>
       {/* <h1>{counter}</h1>
@@ -42,14 +42,11 @@ function App() {
       <h2>  La couleur est {color} et le background est {background}</h2>
       <input type="text" onChange={e=>{setcolor(c=>({...c,color:e.target.value}))}} />
        */}
-<Counter step = {1}></Counter>
-<ListManger l={listItems} placeHold={"ecrire..."} ></ListManger>
-
-            {/* Utilisation de ColorBox avec les props */}
+            <Counter step = {1}></Counter>
+            <ListManger l={listItems} placeHold={"ecrire..."} ></ListManger>
             <ColorBox initialColor={initialColor} colorOptions={colorOptions}></ColorBox>
-             <NotesManager initialNotes={initialNotes}></NotesManager>
-          
-    <TodoList initialTasks={initialTasks}></TodoList>
+            <NotesManager initialNotes={initialNotes}></NotesManager>
+            <TodoList initialTasks={initialTasks}></TodoList>
         
       </>
     )

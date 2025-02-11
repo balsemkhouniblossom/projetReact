@@ -19,9 +19,9 @@ export default function TodoList({ initialTasks }) {
     };
 
     // Fonction pour marquer une tâche comme terminée
-    const toggleTaskCompletion = (index) => {
+    const markTaskAsCompleted = (index) => {
         const updatedTasks = tasks.map((task, i) =>
-            i === index ? { ...task, completed: !task.completed } : task
+            i === index ? { ...task, completed: true } : task
         );
         setTasks(updatedTasks);
     };
@@ -96,19 +96,30 @@ export default function TodoList({ initialTasks }) {
                             padding: "10px",
                             backgroundColor: "#f0f0f0",
                             borderRadius: "5px",
+                            textDecoration: task.completed ? "line-through" : "none", // Ligne barrée si la tâche est terminée
+                            color: task.completed ? "#888" : "inherit", // Couleur grisée si terminée
                         }}
                     >
                         <span>
                             <strong>{task.name}</strong> - Priorité : {task.priority}
                         </span>
                         <span>
-                            <input
-                                type="checkbox"
-                                checked={task.completed}
-                                onChange={() => toggleTaskCompletion(index)}
-                                style={{ marginRight: "10px" }}
-                            />
-                            {task.completed ? "Terminée" : "Non terminée"}
+                            {/* Afficher le bouton "Terminer" si la tâche n'est pas terminée */}
+                            {!task.completed && (
+                                <button
+                                    onClick={() => markTaskAsCompleted(index)}
+                                    style={{
+                                        padding: "5px 10px",
+                                        backgroundColor: "#28a745",
+                                        color: "#fff",
+                                        border: "none",
+                                        borderRadius: "5px",
+                                        cursor: "pointer",
+                                    }}
+                                >
+                                    Terminer
+                                </button>
+                            )}
                         </span>
                     </li>
                 ))}
