@@ -14,7 +14,7 @@ import ListManger from './ExercicePropsState/ListManger.jsx';
 import ColorBox from './ExercicePropsState/ColorBox.jsx';
 import NotesManager from './ExercicePropsState/NotesManager.jsx';
 import TodoList from './ExercicePropsState/TodoList.jsx';
-import Event from './Components/Event.jsx'
+import Events from './Components/Events'
 function App() {
   const [count, setCount] = useState(0)
 
@@ -47,8 +47,8 @@ function App() {
             <ColorBox initialColor={initialColor} colorOptions={colorOptions}></ColorBox>
             <NotesManager initialNotes={initialNotes}></NotesManager>
             <TodoList initialTasks={initialTasks}></TodoList> */}
-        <Event></Event>
-      </>
+    <Events></Events>
+    </>
     )
 
     
