@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { useState } from 'react';
 import Alert from 'react-bootstrap/Alert';
+import { NavLink } from 'react-router-dom';
 
 export default function Event(props) {
   const [nbParticipants, setNbParticipants] = useState(props.event.nbParticipants);
@@ -36,7 +37,12 @@ export default function Event(props) {
       <Card style={{ width: '18rem' }}>
         <Card.Img variant="top" src={imageSrc} />
         <Card.Body>
-          <Card.Title>Event Name: {props.event.name}</Card.Title>
+          <Card.Title>
+          <NavLink to={`/events/${props.event.id}`} style={{ textDecoration: 'none', color: 'blue' }}>
+  {props.event.name}
+</NavLink>
+
+          </Card.Title>
           <Card.Text>Price: {props.event.price}</Card.Text>
           <Card.Text>Number of tickets: {nbTickets}</Card.Text>
           <Card.Text>Number of participants: {nbParticipants}</Card.Text>

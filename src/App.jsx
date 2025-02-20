@@ -15,6 +15,12 @@ import ColorBox from './ExercicePropsState/ColorBox.jsx';
 import NotesManager from './ExercicePropsState/NotesManager.jsx';
 import TodoList from './ExercicePropsState/TodoList.jsx';
 import Events from './Components/Events'
+import { Routes, Route } from 'react-router-dom';
+import NotFound from "./Components/NotFound";
+import React from 'react';
+import NavigationBar from './Components/Navbar.jsx';
+import EventDetails from './Components/EventDetails.jsx';
+
 function App() {
   const [count, setCount] = useState(0)
 
@@ -47,7 +53,20 @@ function App() {
             <ColorBox initialColor={initialColor} colorOptions={colorOptions}></ColorBox>
             <NotesManager initialNotes={initialNotes}></NotesManager>
             <TodoList initialTasks={initialTasks}></TodoList> */}
-    <Events></Events>
+          <NavigationBar></NavigationBar>
+
+    <Routes>
+      {/* Define specific routes */}
+      <Route path="/" element={<Events />} />
+
+      {/* Fallback route for undefined paths */}
+      <Route path="*" element={<NotFound />} />
+      <Route path="/myevents" element={<NotFound />} />
+      <Route path="/events" element={<Events />} />
+      <Route path="/events/:id" element={<EventDetails />} />
+
+    </Routes>
+
     </>
     )
 
