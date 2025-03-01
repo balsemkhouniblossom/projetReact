@@ -40,6 +40,24 @@ const NavigationBar = () => {
             >
               Events
             </NavLink>
+            <NavLink 
+              to="/events/add" 
+              className={({ isActive }) => 
+                isActive ? 'nav-link active fw-bold text-decoration-underline' : 'nav-link'
+              }
+            >
+              Add Events
+            </NavLink>
+          
+            <NavLink 
+              to="/updateEvent" 
+              className={({ isActive }) => 
+                isActive ? 'nav-link active fw-bold text-decoration-underline' : 'nav-link'
+              }
+            >
+              update Events
+            </NavLink>
+
           </Nav>
         </Navbar.Collapse>
       </Container>

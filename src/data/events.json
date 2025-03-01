@@ -1,18 +1,16 @@
-[
+{
+  "events": [
     {
-      "id" : 1,
-      "name": "Festival international de Carthage",
-      "description": "Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page",
+      "name": "Festival international de tunis",
       "img": "event1.jfif",
-      "price": 30,
-      "nbTickets": 10,
-      "nbParticipants": 10,
-      "like": false
+      "price": 38,
+      "nbTickets": 18,
+      "nbParticipants": 18,
+      "id": "1"
     },
     {
-      "id":2,
+      "id": "2",
       "name": "Festival de la médina de Tunis",
-      "description": "Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page",
       "img": "event2.jfif",
       "price": 15,
       "nbTickets": 4,
@@ -20,13 +18,31 @@
       "like": false
     },
     {
-      "id":3,
+      "id": "3",
       "name": "Journées cinématographiques de Carthage (JCC)",
-      "description": "Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page",
       "img": "event3.jfif",
       "price": 7,
       "nbTickets": 20,
       "nbParticipants": 35,
       "like": false
+    },
+    {
+      "id": "647a",
+      "name": "balsem khouni1",
+      "img": "event2.jfif",
+      "price": 4,
+      "nbTickets": 5,
+      "nbParticipants": 0,
+      "like": false
+    },
+    {
+      "id": "849c",
+      "name": "balsem khouni1",
+      "img": "event3.jfif",
+      "price": 4,
+      "nbTickets": 5,
+      "nbParticipants": 8,
+      "like": false
     }
   ]
+}

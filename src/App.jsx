@@ -20,7 +20,8 @@ import NotFound from "./Components/NotFound";
 import React from 'react';
 import NavigationBar from './Components/Navbar.jsx';
 import EventDetails from './Components/EventDetails.jsx';
-
+import AddEvent from './Components/AddEvent.jsx';
+import UpdateEvent from './Components/UpdateEvent.jsx';
 function App() {
   const [count, setCount] = useState(0)
 
@@ -64,8 +65,9 @@ function App() {
       <Route path="/myevents" element={<NotFound />} />
       <Route path="/events" element={<Events />} />
       <Route path="/events/:id" element={<EventDetails />} />
-
-    </Routes>
+      <Route path="/events/add" element={<AddEvent />} /> {/* Route pour ajouter un événement */}
+      <Route path="/update-event/:id" element={<UpdateEvent />} />
+      </Routes>
 
     </>
     )

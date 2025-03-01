@@ -4,6 +4,7 @@ import Card from 'react-bootstrap/Card';
 import { useState } from 'react';
 import Alert from 'react-bootstrap/Alert';
 import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom'; // Ajoutez cette ligne
 
 export default function Event(props) {
   const [nbParticipants, setNbParticipants] = useState(props.event.nbParticipants);
@@ -64,6 +65,10 @@ export default function Event(props) {
           >
             {liked ? 'Dislike' : 'Like'}
           </Button>
+
+          <Link to={`/update-event/${props.event.id}`}>
+                <Button variant="primary">Update Event</Button>
+            </Link>
         </Card.Body>
       </Card>
     </Row>

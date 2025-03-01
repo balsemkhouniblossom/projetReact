@@ -1,30 +1,53 @@
-import { useState, useEffect } from 'react';
-import list from '../data/events.json';
-import Event from '../Components/Event';
-import Alert from 'react-bootstrap/Alert';
+import React, { useEffect, useState } from 'react';
+import { getallEvents } from '../services/api'; // Adjust the path as necessary
+import Alert from 'react-bootstrap/Alert'; // Ensure you have this import for Alert
+import Event from '../Components/Event'; // Adjust the import as necessary
 
-export default function Events() {
-  const [showWelcomeMessage, setShowWelcomeMessage] = useState(false);
+const Events = () => {
+  const [list, setList] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [showWelcomeMessage, setShowWelcomeMessage] = useState(false); // Define showWelcomeMessage
 
-  // Use useEffect to show the welcome message after the component has mounted
   useEffect(() => {
-    // Show the welcome message after the component is mounted
-    setShowWelcomeMessage(true);
+    const fetchData = async () => {
+      setLoading(true);
+      setError(null); // Reset error state before fetching
+      try {
+        const response = await getallEvents();
+        setList(response.data); // Assuming the response data is the events array
+      } catch (error) {
+        setError("Error fetching data."); // Set error message
+        console.error("Error fetching data:", error);
+      } finally {
+        setLoading(false); // Set loading to false after fetch
+      }
+    };
 
-    // Hide the message after 3 seconds
+    fetchData();
+
+    // Show the welcome message when the component mounts
+    setShowWelcomeMessage(true);
     const timer = setTimeout(() => {
-      setShowWelcomeMessage(false);
+      setShowWelcomeMessage(false); // Hide the message after 3 seconds
     }, 3000);
 
-    // Cleanup the timer on component unmount
-    return () => clearTimeout(timer);
-  }, []); // Empty dependency array ensures this runs once after mounting
+    return () => clearTimeout(timer); // Cleanup timer on unmount
+  }, []);
+
+  if (loading) {
+    return <p>Loading events...</p>; // Loading state
+  }
+
+  if (error) {
+    return <p>{error}</p>; // Error state
+  }
 
   return (
     <>
       {showWelcomeMessage && (
         <Alert variant="success">
-         Hey  Welcome to Esprit Events 
+          Hey! Welcome to Esprit Events
         </Alert>
       )}
 
@@ -35,4 +58,6 @@ export default function Events() {
       </ul>
     </>
   );
-}
+};
+
+export default Events;
